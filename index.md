@@ -1,10 +1,7 @@
-# [TEMA 2](/ut02/index.md)
-1. [PRACTICA 1](/ut02/pr0201/doc.md)
-2. [PRACTICA 2](/ut02/pr0202/doc.md)
-3. [PRACTICA 3](/ut02/pr0203/doc.md)
-
 # [TEMA 3](/ut03/index.md)
 1. [PRACTICA 1](/ut03/pr0301/doc.md)
+2. [PRACTICA 2](/ut03/pr0302/doc.md)
+3. [PRACTICA 3](/ut03/pr0303/doc.md)
 
 # [TEMA 4](/ut04/index.md)
 1. [PRACTICA 1](/ut04/pr0401/doc.md)
