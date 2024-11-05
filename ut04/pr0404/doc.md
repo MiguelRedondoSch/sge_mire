@@ -57,7 +57,52 @@ Supón un diccionario donde cada clave es una asignatura y el valor correspondie
 - Dar de baja un estudiante de una asignatura.
 
 ```python
-#NO HECHO
+def menu():
+    option = input(
+"""
+
+1. Listar estudiantes matriculados en una asignatura
+2. Matricular un estudiante en una asignatura
+3. Dar de baja un estudiante de una asignatura.
+4. Salir
+""")
+    match(int(option)):
+        case 1:
+            asignatura = input("Dime que asignatura: ")
+            if asignatura in asignaturas:
+                print(asignaturas[asignatura])
+            else:
+                print("No existe esa asignatura")
+            menu()
+        case 2:
+            alumno = input("Nombre de alumno: ")
+            asignatura = input("Asignatura: ")
+            asignaturas[asignatura].append(alumno)
+            print(asignaturas[asignatura])
+            menu()
+        case 3:
+            alumno = input("Nombre de alumno: ")
+            asignatura = input("Asignatura: ")
+            if asignatura in asignaturas:
+                asignaturas[asignatura].remove(alumno)
+                print(asignaturas[asignatura])
+            else:
+                print("No existe el alumno")
+            menu()
+        case 4:
+            print("Adios, vuelva pronto")
+        case _:
+            print("Solo existe las opciones 1, 2, 3 y 4")
+            menu()
+
+asignaturas = {
+    "Matemáticas": ["Ana", "Carlos", "Luis", "María", "Jorge"],
+    "Física": ["Elena", "Luis", "Juan", "Sofía"],
+    "Programación": ["Ana", "Carlos", "Sofía", "Jorge", "Pedro"],
+    "Historia": ["María", "Juan", "Elena", "Ana"],
+    "Inglés": ["Carlos", "Sofía", "Jorge", "María"],
+}
+menu()
 ```
 
 ## **5. Diccionario invertido:**
@@ -113,7 +158,76 @@ Partiendo de un diccionario donde las claves son nombres de departamentos y los 
 - Eliminar un empleado de un departamento
 
 ```python
+def menu():
+    option = input(
+"""
 
+1. Mostrar el listado de todos los empleados de un departamento
+2. Añadir un empleado a un departamento
+3. Eliminar un empleado de un departamento
+4. Salir
+""")
+    match(int(option)):
+        case 1:
+            departamento = input("Dime que departamento: ")
+            if departamento in departamentos:
+                for empleado, oficio in departamentos[departamento].items():
+                    print(f"{empleado}: {oficio}")
+            else:
+                print("No existe ese departamento")
+            menu()
+        case 2:
+            empleado = input("Nombre del empleado: ")
+            oficio = input("Oficio del empleado: ")
+            departamento = input("Departamento: ")
+            if departamento in departamentos:
+                departamentos[departamento][empleado] = oficio
+                print(departamentos[departamento])
+            else:
+                print("No existe el departamento")
+            menu()
+        case 3:
+            empleado = input("Nombre del empleado: ")
+            departamento = input("Departamento: ")
+            if departamento in departamentos:
+                if empleado in departamentos[departamento]:
+                    del departamentos[departamento][empleado]
+                else:
+                    print("No existe el empleado en el departamento")
+                print(departamentos[departamento])
+            else:
+                print("No existe el departamento")
+            menu()
+        case 4:
+            print("Adios, vuelva pronto")
+        case _:
+            print("Solo existe las opciones 1, 2, 3 y 4")
+            menu()
+
+
+departamentos = {
+    "Recursos Humanos": {
+        "Ana": "Gerente de Recursos Humanos",
+        "Luis": "Especialista en Reclutamiento",
+        "Elena": "Asistente de Recursos Humanos"
+    },
+    "Tecnología": {
+        "Carlos": "Desarrollador Backend",
+        "María": "Desarrolladora Frontend",
+        "Pedro": "Administrador de Sistemas"
+    },
+    "Marketing": {
+        "Sofía": "Directora de Marketing",
+        "Jorge": "Especialista en SEO",
+        "Laura": "Community Manager"
+    },
+    "Finanzas": {
+        "Juan": "Analista Financiero",
+        "Lucía": "Contadora",
+        "Raúl": "Asesor Financiero"
+    }
+}
+menu()
 ```
 
 ## **9. Transformación de datos:**
@@ -122,12 +236,32 @@ Dado un diccionario con claves como nombres de estudiantes y valores como una li
 - Crea otro diccionario que contengan la nota promedio en cada asignatura
 
 ```python
+estudiantes = {
+    "Ana": {"Matemáticas": 8.5, "Física": 9.0, "Programación": 7.8},
+    "Carlos": {"Matemáticas": 9.2, "Física": 8.8, "Programación": 9.4},
+    "Luis": {"Matemáticas": 7.6, "Física": 8.0, "Programación": 8.5},
+    "María": {"Matemáticas": 9.5, "Física": 10.0, "Programación": 9.8},
+    "Jorge": {"Matemáticas": 8.8, "Física": 8.4, "Programación": 7.9},
+    "Sofía": {"Matemáticas": 9.1, "Física": 8.9, "Programación": 9.3}
+}
 
-```
+mediaAlumno=0
+mediasAlumnos={}
+for alumno in estudiantes:
+    for nota in estudiantes.get(alumno).values():
+        mediaAlumno+=nota
+    mediasAlumnos[alumno] = mediaAlumno / len(estudiantes.get(alumno))
+    mediaAlumno = 0
+print(mediasAlumnos)
 
-## **10. Contar palabras en un texto:**
-Escribe un programa que lea un archivo de texto y cuente cuántas veces aparece cada palabra, almacenando las frecuencias en un diccionario.
+mediasAsignaturas = {}
 
-```python
+for notas in estudiantes.values():
+    for asignatura, nota in notas.items():
+        if asignatura in mediasAsignaturas:
+            mediasAsignaturas[asignatura] = (mediasAsignaturas[asignatura] + nota)/2
+        else:
+            mediasAsignaturas[asignatura] = nota
 
+print(mediasAsignaturas)
 ```
