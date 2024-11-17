@@ -118,33 +118,62 @@ print(solution)
 Dadas dos listas de caracteres, usa reduce para concatenarlas en una sola lista sin utilizar + o métodos de concatenación.
 
 ```python
-#NO HECHO
+from functools import reduce
+
+lista1 = ['a', 'b', 'c']
+lista2 = ['x', 'y', 'z']
+
+def f(acc, char):
+    return acc + [char]
+
+resultado = reduce(f, lista1, []) + reduce(f, lista2, [])
+print(resultado)
 ```
 
 ## **11.- Calificación de alumnos**
 Dada una lista de tuplas con el nombre del alumno y su calificación, utiliza map y filter para obtener una lista con los nombres de los alumnos que han aprobado (nota >= 5).
 
 ```python
-#NO HECHO
+alumnos = [("Ana", 4), ("Bruno", 7), ("Clara", 5), ("David", 8)]
+
+aprobados = list(filter(lambda alumno: alumno[1]>=5, alumnos))
+print(list(map(lambda aprobado: aprobado[0], aprobados)))
 ```
 
 ## **12.- Calcular producto cartesiano**
 Dadas dos listas de números, usa map para obtener el producto cartesiano de ambas listas, devolviendo una lista de tuplas.
 
 ```python
-#NO HECHO
+lista1 = [1, 2]
+lista2 = [3, 4]
+
+result=[]
+print(list(map(lambda val: [lista1[0], val], lista2)) + list(map(lambda val: [lista1[1], val], lista2)))
 ```
 
 ## **13.- Pipe de transformaciones de listas**
 Implementa una función que tome una lista de funciones y una lista de números, y aplique cada función de la lista en secuencia sobre la lista de números usando reduce.
 
 ```python
-#NO HECHO
+from functools import reduce
+
+funciones = [lambda x: x*2, lambda x: x+3, lambda x: x-1]
+numeros = [1, 2, 3]
+result=[]
+for num in numeros:
+    result.append(reduce(lambda acc, func: func(acc), funciones, num))
+print(result)
 ```
 
 ## **14.- Aplicar operaciones de cadena**
 Dada una lista de cadenas, usa map y filter para crear una nueva lista con las cadenas que tengan más de tres letras y en las que todas las letras sean mayúsculas. Además, convierte el primer carácter en minúscula.
 
 ```python
-#NO HECHO
+palabras = ["HOLA", "MUNDO", "SOL", "CIELO", "mar", "banana"]
+
+filterWord = list(filter(lambda word: len(word)>3 and word==(word.upper()), palabras))
+
+filterWord = [word[0].lower() + word[1::] for word in filterWord]
+    
+print(filterWord)
 ```

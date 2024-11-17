@@ -15,6 +15,7 @@ Crear una aplicación de consola que permita gestionar una lista de tareas. Cada
 - **Eliminar tarea:** permitirá al usuario borrar tareas que ya no necesita.
 - **Guardar y cargar desde fichero:** Al salir, guardar las tareas en un fichero CSV, y al iniciar, cargar las tareas previamente guardadas.
 - **Tareas vencidas:** opcionalmente dispondrá de la posibilidad de notificar al usuario sobre las tareas que han vencido.
+
 ```python
 from datetime import datetime
 
