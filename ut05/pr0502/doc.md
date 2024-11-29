@@ -9,7 +9,7 @@ odoo scaffold gestor_biblioteca /mnt/modulos-extra
 ```
 
 
-## 2. Creacion de modelo author
+## 2. Creacion de modelo `author`
 
 ```python
 # -*- coding: utf-8 -*-
@@ -29,7 +29,7 @@ class gestor_biblioteca_author(models.Model):
 ```
 
 
-## 3. Creacion de modelo book
+## 3. Creacion de modelo `book`
 
 ```python
 # -*- coding: utf-8 -*-
@@ -48,7 +48,7 @@ class gestor_biblioteca_book(models.Model):
 ```
 
 
-## 4. Modificacion de init de modelos
+## 4. Modificacion de `__init__` de modelos
 
 Se importan los 2 modelos creados anteriormente
 
@@ -60,11 +60,11 @@ from . import gestor_biblioteca_book
 ```
 
 
-## 5. Creacion de View de Author
+## 5. Creacion de View de `Author`
 
 Se colocan los campos creados en el modelo y se define la acción que se llamará en el menú.
 
-```python
+```xml
 <odoo>
   <data>
     <!-- explicit list view definition -->
@@ -96,11 +96,11 @@ Se colocan los campos creados en el modelo y se define la acción que se llamar�
 ```
 
 
-## 6. Creacion de View de Book
+## 6. Creacion de View de `Book`
 
 Se colocan los campos creados en el modelo y se define la acción que se llamará en el menú.
 
-```python
+```xml
 <odoo>
   <data>
     <!-- explicit list view definition -->
@@ -132,11 +132,11 @@ Se colocan los campos creados en el modelo y se define la acción que se llamar�
 ```
 
 
-## 6. Creacion de View de Menu
+## 7. Creacion de View de `Menu`
 
 En esta sección se definen elementos de menú con sus nombres, y se establece que al pulsarlos se llame a la acción definida en las vistas de autor y libro.
 
-```python
+```xml
 <odoo>
   <data>
 
@@ -159,8 +159,20 @@ En esta sección se definen elementos de menú con sus nombres, y se establece q
 ```
 
 
-## 7. Modificacion de manifest
-Se abre el `manifest.py` y se adpata al modulo con descripciones y nombre y se añade las views que creaste y descomentamos el modelo de seguridad:
+## 8. Modificacion de `ir.model.access.csv`
+
+Se añaden los dos `views` creados anteriormente y se les otorgan todos los permisos
+
+```pyhton
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_gestor_biblioteca_author,gestor_biblioteca.gestor_biblioteca_author_view,model_gestor_biblioteca_gestor_biblioteca_author,base.group_user,1,1,1,1
+access_gestor_biblioteca_book,gestor_biblioteca.gestor_biblioteca_book_view,model_gestor_biblioteca_gestor_biblioteca_book,base.group_user,1,1,1,1
+```
+
+
+## 9. Modificacion de manifest
+
+El `manifest.py` se abre y se adapta al módulo con descripciones y nombre, y se añaden las vistas creadas, además de descomentar el modelo de seguridad.
 
 ```python
 # -*- coding: utf-8 -*-
