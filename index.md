@@ -15,6 +15,7 @@
 
 # [TEMA 5](/ut05/index.md)
 1. [PRACTICA 1](/ut05/pr0501/doc.md)
+1. [PRACTICA 2](/ut05/pr0502/doc.md)
 
 # [TEMA 6](/ut06/index.md)
 1. [PRACTICA 1](/ut06/pr0601/doc.md)
