@@ -5,7 +5,7 @@
 
 Se abre un bash dentro del docker odoo y se ejecuta:
 ```bash
-odoo scaffold gestor_biblioteca /mnt/modulos-extra
+odoo scaffold gestor_biblioteca /mnt/extra-addons
 ```
 
 

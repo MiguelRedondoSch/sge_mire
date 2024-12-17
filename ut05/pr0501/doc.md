@@ -4,7 +4,7 @@
 
 Se abre un bash dentro del docker odoo y se ejecuta:
 ```bash
-odoo scaffold Reservas /mnt/modulos-extra
+odoo scaffold Reservas /mnt/extra-addons
 ```
 
 ## 2. Modificacion de manifest

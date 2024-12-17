@@ -1,10 +1,10 @@
-# Creación del primer modulo
+# Campos del modelo
 
 ## 1. Cracion de estuctura de modulo
 
 Se abre un bash dentro del docker odoo y se ejecuta:
 ```bash
-odoo scaffold gestion_productos /mnt/modulos-extra
+odoo scaffold gestion_productos /mnt/extra-addons
 ```
 
 ## 2. Modificacion de manifest
