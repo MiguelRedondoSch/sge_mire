@@ -20,3 +20,4 @@
 # [TEMA 6](/ut06/index.md)
 1. [PRACTICA 1](/ut06/pr0601/doc.md)
 1. [PRACTICA 2](/ut06/pr0602/doc.md)
+1. [PRACTICA 3](/ut06/pr0603/doc.md)
