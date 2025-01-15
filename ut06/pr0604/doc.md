@@ -145,6 +145,48 @@ Aquí se modifica solo la vista para que se adecue a el modelo `views.py`
       </field>
     </record>
 
+    <record model="ir.ui.view" id="subscription_form">
+      <field name="name">Formulario</field>
+      <field name="model">subscription.subscription</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group name="informacion_basica" string="Información Básica">
+              <field name="name"/>
+              <field name="customer_id"/>
+              <field name="subscription_code"/>
+            </group>
+
+            <separator/>
+
+            <notebook>
+              <page string="Informacion Basica">
+                <group col="4">
+                  <field name="name"/>
+                  <field name="customer_id"/>
+                  <field name="subscription_code"/>
+                  <field name="start_date"/>
+                  <field name="end_date"/>
+                  <field name="renewal_date"/>
+                  <field name="status"/>
+                  <field name="is_renewable"/>
+                  <field name="auto_renewal"/>
+                  <field name="price"/>
+                </group>
+              </page>
+              <page string="Infromacion de Uso">
+              <group>
+                <field name="usage_limit"/>
+                <field name="current_usage"/>
+                <field name="use_percent"/>
+              </group>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
 
     <!-- actions opening views on models -->
 
@@ -162,6 +204,13 @@ Aquí se modifica solo la vista para que se adecue a el modelo `views.py`
       <field name="view_id" ref="subscription_usage"/>
     </record>
 
+    <record model="ir.actions.act_window" id="subscription_action_form">
+      <field name="name">Formulario</field>
+      <field name="res_model">subscription.subscription</field>
+      <field name="view_mode">form</field>
+      <field name="view_id" ref="subscription_form"/>
+    </record>
+
     <!-- Top menu item -->
 
     <menuitem name="Suscripciones" id="subscription.menu_root"/>
@@ -170,13 +219,16 @@ Aquí se modifica solo la vista para que se adecue a el modelo `views.py`
 
     <menuitem name="Gestion De Suscripciones" id="subscription.menu_1" parent="subscription.menu_root"/>
     <menuitem name="Uso de Suscripcion" id="subscription.menu_2" parent="subscription.menu_root"/>
+    <menuitem name="Formulario" id="subscription.menu_3" parent="subscription.menu_root"/>
 
     <!-- actions -->
 
     <menuitem name="Gestion De Suscripciones" id="subscription.menu_1_list" parent="subscription.menu_1"
               action="subscription_basic_action_gestion"/>
-    <menuitem name="Uso de Suscripcion" id="subscription" parent="subscription.menu_2"
+    <menuitem name="Uso de Suscripcion" id="subscription.menu_2_list" parent="subscription.menu_2"
               action="subscription_usage_action_use"/>
+    <menuitem name="Formulario" id="subscription.menu_3_form" parent="subscription.menu_3"
+              action="subscription_action_form"/>
 
   </data>
 </odoo>
@@ -194,4 +246,7 @@ Vamos a `aplicaciones` e instalamos nuestro modulo
 
 **Interfaz de uso**
 ![](img/interfaceuse.png)
+
+**Interfaz de Formulario**
+![](img/interfaceForm.png)
 
