@@ -25,3 +25,4 @@
 
 # [TEMA 7](/ut07/index.md)
 1. [PRACTICA 1](/ut07/pr0701/doc.md)
+1. [PRACTICA 2](/ut07/pr0702/doc.md)
