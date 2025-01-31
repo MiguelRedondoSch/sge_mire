@@ -1,6 +1,6 @@
 # API REST
 
-## 1. Me base en el modulo de [Subscripciones](/ut07/pr0701/doc.md) del ejericicio pasado
+## 1. Me basé en el módulo de [Suscripciones](../pr0701/doc.md) del ejercicio pasado
 
 ## 2. Añadir Request y Respond a un URL en `Controllers`
 Añadi la parte del codigo con los url que empizan con /api/

@@ -1,6 +1,6 @@
 # Campos del modelo
 
-## 1. Me base en el modulo de [Subscripciones](/ut06/pr0604/doc.md) del tema pasado 
+## 1. Me basé en el módulo de [Suscripciones](../../ut06/pr0604/doc.md) del tema pasado
 
 ## 2. Definición de controlador
 Aquí cree la web estatica con un return basico y la dinamica que le paso en un dicionario con las subscripciones
